@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sweepsouth_sweep_south",
+    "description": "SweepSouth with space variant",
+    "match_contains": "SWEEPSOUTH",
+    "contact": "SWEEPSOUTH",
+    "narration": null,
+    "account_code": "902"
+  },
+  {
+    "id": "bank_fees_usd",
+    "description": "Bank charges and fees on USD account",
+    "match_contains": "Fees",
+    "contact": "CIB Bank",
+    "narration": null,
+    "account_code": "404"
+  },
+  {
+    "id": "feeding_local_account_debit",
+    "description": "USD to EGP cross-currency transfer — exported as Xero CSV for manual import, not auto-synced",
+    "match_contains": "feeding local account",
+    "contact": "Account Transfer",
+    "narration": "Bank Transfer to CIB EGP",
+    "account_code": "902",
+    "export_only": true,
+    "applies_to": "debit"
+  },
+  {
+    "id": "feeding_local_account_credit",
+    "description": "EGP to USD cross-currency receipt — exported as Xero CSV for manual import, not auto-synced",
+    "match_contains": "feeding local account",
+    "contact": "Account Transfer",
+    "narration": "Bank Transfer from CIB EGP",
+    "account_code": "902",
+    "export_only": true,
+    "applies_to": "credit"
+  }
+]

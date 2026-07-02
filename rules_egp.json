@@ -1,0 +1,470 @@
+[
+  {
+    "id": "fawry",
+    "description": "Fawry collections from technicians",
+    "match_contains": "Fawry",
+    "contact": "Fawry CashIn",
+    "narration": "B2C Technician Collection from Fawry",
+    "account_code": "920"
+  },
+  {
+    "id": "paymob",
+    "description": "Paymob customer settlements",
+    "match_contains": "Paymob Settlement",
+    "contact": "Accept For Technology",
+    "narration": "B2C Customer Collection from Paymob",
+    "account_code": "671"
+  },
+  {
+    "id": "salary",
+    "description": "Direct debit salary payments",
+    "match_contains": "DD SALARY",
+    "contact": "CIB Bank",
+    "narration": null,
+    "account_code": "880"
+  },
+  {
+    "id": "living_expenses",
+    "description": "B2C customer collections via IPN (Living Expenses)",
+    "match_contains": "Living Expenses",
+    "contact": "extract:payer_name",
+    "narration": "B2C Customer Collection",
+    "account_code": "671"
+  },
+  {
+    "id": "account_transfer_-_ach_corpay_fees",
+    "description": "",
+    "match_contains": " Fees Account Transfer",
+    "contact": "CIB Bank",
+    "narration": null,
+    "account_code": "404"
+  },
+  {
+    "id": "account_transfer_to_cps",
+    "description": "EGP to CPS interbank transfer (debit side) \u2014 post as BankTransfer to CPS",
+    "match_contains": "Account Transfer",
+    "contact": "CIB Bank",
+    "narration": "Bank Transfer to CIB CPS",
+    "account_code": "615",
+    "transfer_to_account_id": "5190de09-55a2-465d-8c2c-429df24ec25a",
+    "applies_to": "debit"
+  },
+  {
+    "id": "account_transfer",
+    "description": "",
+    "match_contains": "Account Transfer",
+    "contact": "CIB Bank",
+    "narration": null,
+    "account_code": "404"
+  },
+  {
+    "id": "ahmed_mohamed_fath_allah__tanas",
+    "description": "Emaar (Uptown, Mivida, Cario Gate or Marassi)",
+    "match_contains": "AHMED MOHAMED FATH ALLAH  TANAS",
+    "contact": "Ahmed Tanash",
+    "narration": null,
+    "account_code": "646"
+  },
+  {
+    "id": "phone_cash_transfer",
+    "description": "",
+    "match_contains": " Phone Cash Transfer",
+    "contact": "",
+    "narration": null,
+    "account_code": "671"
+  },
+  {
+    "id": "_fawr_y",
+    "description": "",
+    "match_contains": " Fawr y",
+    "contact": "Fawry CashIn",
+    "narration": "B2C Technician Collection from Fawry",
+    "account_code": "920"
+  },
+  {
+    "id": "ipn_inward",
+    "description": "",
+    "match_contains": "IPN Inward",
+    "contact": "",
+    "narration": null,
+    "account_code": "671"
+  },
+  {
+    "id": "emaar_misr",
+    "description": "Emaar Misr payments (bulk \u2014 match via Match Invoices tab)",
+    "match_contains": "EMAAR MISR FOR DEV",
+    "contact": "Emaar Misr (0015)",
+    "narration": null,
+    "account_code": "639"
+  },
+  {
+    "id": "opex_logistics",
+    "description": "Opex Logistics Services payments (statement line \u2014 not batch)",
+    "match_contains": "OPEX LOGISTICS",
+    "contact": "Opex Logistics Services (0023)",
+    "narration": null,
+    "account_code": "671"
+  },
+  {
+    "id": "souq_com",
+    "description": "Souq.com / Amazon payments",
+    "match_contains": "SOUQ.COM FOR E COMMERCE",
+    "contact": "SOUQ.COM FOR ECOMMERCE LLC",
+    "narration": null,
+    "account_code": "671"
+  },
+  {
+    "id": "feeding_local_account",
+    "description": "EGP receipt of USD-to-EGP cross-currency transfer \u2014 exported as Xero CSV for manual import, not auto-synced",
+    "match_contains": "Feeding local account",
+    "contact": "Account Transfer",
+    "narration": "Bank Transfer from CIB USD",
+    "account_code": "850",
+    "export_only": true,
+    "applies_to": "credit"
+  },
+  {
+    "id": "eg6600_souq_com",
+    "description": "",
+    "match_contains": "EG6600 25007100000071172753004 SOUQ.COM FO R ECOMMERCE L",
+    "contact": "SOUQ.COM FOR ECOMMERCE LLC",
+    "narration": null,
+    "account_code": "639"
+  },
+  {
+    "id": "ema_ar_misr_for_dev",
+    "description": "",
+    "match_contains": "EMA AR MISR FOR DEV",
+    "contact": "Emaar Misr (0015)",
+    "narration": null,
+    "account_code": "639"
+  },
+  {
+    "id": "batch_settlement_ceramic",
+    "description": "Batch \u2014 technician settlement (AL MAHGOUB / Ceramic)",
+    "match_contains": "Ceramic",
+    "contact": "",
+    "narration": null,
+    "account_code": "920",
+    "department": "Operations",
+    "channel": "AL MAHGOUB"
+  },
+  {
+    "id": "batch_settlement_non_uds",
+    "description": "Batch \u2014 technician settlement (Amazon Non UDS)",
+    "match_contains": "Non UDS",
+    "contact": "",
+    "narration": null,
+    "account_code": "920",
+    "department": "Operations",
+    "channel": "Amazon Non UDS"
+  },
+  {
+    "id": "batch_settlement_orders",
+    "description": "Batch \u2014 technician settlement orders (Marketplace)",
+    "match_contains": "Settlement",
+    "contact": "",
+    "narration": null,
+    "account_code": "920",
+    "department": "Operations",
+    "channel": "Marketplace"
+  },
+  {
+    "id": "batch_cario_gate_salaries",
+    "description": "Batch \u2014 Cario Gate BC/WC salaries",
+    "match_contains": "Cario Gate",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Cario Gate"
+  },
+  {
+    "id": "batch_uptown_salaries",
+    "description": "Batch \u2014 Uptown BC/WC salaries",
+    "match_contains": "Uptown BC",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Uptown (Emaar)"
+  },
+  {
+    "id": "batch_uptown_wc_salaries",
+    "description": "Batch \u2014 Uptown WC salaries",
+    "match_contains": "Uptown WC",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Uptown (Emaar)"
+  },
+  {
+    "id": "batch_mivida_bc_salaries",
+    "description": "Batch \u2014 Mivida BC salaries",
+    "match_contains": "Mivida BC",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Mivida (Emaar)"
+  },
+  {
+    "id": "batch_mivida_wc_salaries",
+    "description": "Batch \u2014 Mivida WC salaries",
+    "match_contains": "Mivida WC",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Mivida (Emaar)"
+  },
+  {
+    "id": "batch_hq_salaries",
+    "description": "Batch \u2014 Head Office / HQ salaries",
+    "match_contains": "Head Office Sala",
+    "contact": "",
+    "narration": null,
+    "account_code": "880",
+    "department": "Human Resources",
+    "channel": "Head Office"
+  },
+  {
+    "id": "batch_hq_salaries_2",
+    "description": "Batch \u2014 HQ salaries keyword variant",
+    "match_contains": "HQ sala",
+    "contact": "",
+    "narration": null,
+    "account_code": "880",
+    "department": "Human Resources",
+    "channel": "Head Office"
+  },
+  {
+    "id": "batch_salaries_amazon_spx",
+    "description": "Batch \u2014 salaries Amazon SPX",
+    "match_contains": "Salaries Amazon SPX",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Amazon SPX"
+  },
+  {
+    "id": "batch_salaries_spx",
+    "description": "Batch \u2014 salaries SPX",
+    "match_contains": "Salaries SPX",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "Amazon SPX"
+  },
+  {
+    "id": "batch_salaries_g_express",
+    "description": "Batch \u2014 salaries G Express",
+    "match_contains": "Salaries G Express",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "G-Express"
+  },
+  {
+    "id": "batch_salaries_opex",
+    "description": "Batch \u2014 salaries Opex",
+    "match_contains": "Salaries Opex",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "opex"
+  },
+  {
+    "id": "batch_overtime_g_express",
+    "description": "Batch \u2014 overtime G Express",
+    "match_contains": "Overtime G Express",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "G-Express"
+  },
+  {
+    "id": "batch_overtime_opex",
+    "description": "Batch \u2014 overtime Opex",
+    "match_contains": "Overtime Opex",
+    "contact": "",
+    "narration": null,
+    "account_code": "883",
+    "department": "Operations",
+    "channel": "opex"
+  },
+  {
+    "id": "batch_petty_cash_marassi",
+    "description": "Batch \u2014 petty cash Marassi",
+    "match_contains": "Petty Cash Marassi",
+    "contact": "",
+    "narration": null,
+    "account_code": "642",
+    "department": "Operations",
+    "channel": "Emaar Misr, Marassi Development (North Cost Safe)"
+  },
+  {
+    "id": "batch_petty_cash_uptown",
+    "description": "Batch \u2014 petty cash Uptown",
+    "match_contains": "Pettycash For Uptown",
+    "contact": "",
+    "narration": null,
+    "account_code": "646",
+    "department": "Operations",
+    "channel": "Uptown (Emaar)"
+  },
+  {
+    "id": "batch_petty_cash_mivida",
+    "description": "Batch \u2014 petty cash Mivida",
+    "match_contains": "Pettycash",
+    "contact": "",
+    "narration": null,
+    "account_code": "646",
+    "department": "Operations",
+    "channel": "Mivida (Emaar)"
+  },
+  {
+    "id": "batch_petty_cash_mivida_2",
+    "description": "Batch \u2014 petty cash Mivida variant",
+    "match_contains": "Petty cash Mivida",
+    "contact": "",
+    "narration": null,
+    "account_code": "646",
+    "department": "Operations",
+    "channel": "Mivida (Emaar)"
+  },
+  {
+    "id": "batch_prepayment_rent",
+    "description": "Batch \u2014 prepayment for rent Marassi",
+    "match_contains": "Prepayment for Rent",
+    "contact": "",
+    "narration": null,
+    "account_code": "620",
+    "department": "Operations",
+    "channel": "Emaar Misr, Marassi Development (North Cost Safe)"
+  },
+  {
+    "id": "batch_rent_storage",
+    "description": "Batch \u2014 rent for new storage",
+    "match_contains": "Rent for new",
+    "contact": "",
+    "narration": null,
+    "account_code": "810",
+    "department": "Home",
+    "channel": "Head Office"
+  },
+  {
+    "id": "batch_rental_cars_cg",
+    "description": "Batch \u2014 rental cars Cario Gate",
+    "match_contains": "Rental Cars CG",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "Cario Gate"
+  },
+  {
+    "id": "batch_rental_cars_mvd",
+    "description": "Batch \u2014 rental cars Mivida",
+    "match_contains": "Rental Cars MVD",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "Mivida (Emaar)"
+  },
+  {
+    "id": "batch_rental_cars_utc",
+    "description": "Batch \u2014 rental cars Uptown",
+    "match_contains": "Rental Cars UTC",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "Uptown (Emaar)"
+  },
+  {
+    "id": "batch_materials_g_express",
+    "description": "Batch \u2014 materials G Express",
+    "match_contains": "Materials G Express",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "G-Express"
+  },
+  {
+    "id": "batch_materials_gs1",
+    "description": "Batch \u2014 materials GS1",
+    "match_contains": "Materials GS1",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "GS1"
+  },
+  {
+    "id": "batch_materials_opex",
+    "description": "Batch \u2014 materials Opex",
+    "match_contains": "Materials Opex",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "opex"
+  },
+  {
+    "id": "batch_supplier_referral",
+    "description": "Batch \u2014 supplier referral",
+    "match_contains": "Supplier referral",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "Marketplace"
+  },
+  {
+    "id": "batch_referral",
+    "description": "Batch \u2014 referral (generic)",
+    "match_contains": "referral",
+    "contact": "",
+    "narration": null,
+    "account_code": "310",
+    "department": "Operations",
+    "channel": "Marketplace"
+  },
+  {
+    "id": "batch_customer_refund",
+    "description": "Batch \u2014 customer refund / compensation",
+    "match_contains": "Customer Refund",
+    "contact": "",
+    "narration": null,
+    "account_code": "407",
+    "department": "Operations",
+    "channel": "Marketplace"
+  },
+  {
+    "id": "batch_refund",
+    "description": "Batch \u2014 refund (generic)",
+    "match_contains": "Refund",
+    "contact": "",
+    "narration": null,
+    "account_code": "407",
+    "department": "Operations",
+    "channel": "Marketplace"
+  },
+  {
+    "id": "rejected",
+    "description": "",
+    "match_contains": "Rejected",
+    "contact": "CIB Bank",
+    "narration": null,
+    "account_code": "850"
+  }
+]

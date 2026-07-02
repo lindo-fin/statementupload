@@ -1,0 +1,108 @@
+[
+  {
+    "id": "transfer_from_egp",
+    "description": "Receipt of EGP-to-CPS interbank transfer — skip, BankTransfer posted from EGP side",
+    "match_contains": "Account Transfer",
+    "contact": "CIB Bank",
+    "narration": "Bank Transfer from CIB EGP",
+    "account_code": "615",
+    "skip_as_transfer_receipt": true,
+    "applies_to": "credit"
+  },
+  {
+    "id": "vat_payment",
+    "description": "VAT payment to Egyptian Tax Authority",
+    "match_contains": "VAT",
+    "contact": "Egyptian Tax Authority",
+    "narration": "VAT Payment",
+    "account_code": "820"
+  },
+  {
+    "id": "income_tax",
+    "description": "Income tax payment",
+    "match_contains": "INCOME TAX",
+    "contact": "Egyptian Tax Authority",
+    "narration": "Income Tax Payment",
+    "account_code": "830"
+  },
+  {
+    "id": "payroll_salary",
+    "description": "Payroll / salary run payments",
+    "match_contains": "SALARY",
+    "contact": "CIB Bank",
+    "narration": "Payroll",
+    "account_code": "880"
+  },
+  {
+    "id": "dd_salary",
+    "description": "Direct debit salary",
+    "match_contains": "DD SALARY",
+    "contact": "CIB Bank",
+    "narration": "Payroll",
+    "account_code": "880"
+  },
+  {
+    "id": "social_insurance",
+    "description": "Social insurance payments",
+    "match_contains": "SOCIAL INS",
+    "contact": "National Organisation for Social Insurance",
+    "narration": "Social Insurance Payment",
+    "account_code": "826"
+  },
+  {
+    "id": "social_insurance_2",
+    "description": "Social insurance payments (alternative keyword)",
+    "match_contains": "SOCIAL INSURANCE",
+    "contact": "National Organisation for Social Insurance",
+    "narration": "Social Insurance Payment",
+    "account_code": "826"
+  },
+  {
+    "id": "wht_payment",
+    "description": "Withholding tax payment to tax authority",
+    "match_contains": "WHT",
+    "contact": "Egyptian Tax Authority",
+    "narration": "WHT Payment",
+    "account_code": "827"
+  },
+  {
+    "id": "withholding_tax",
+    "description": "Withholding tax (long-form keyword)",
+    "match_contains": "WITHHOLDING",
+    "contact": "Egyptian Tax Authority",
+    "narration": "WHT Payment",
+    "account_code": "827"
+  },
+  {
+    "id": "solidarity_fund",
+    "description": "Solidarity fund contribution",
+    "match_contains": "SOLIDARITY",
+    "contact": "Egyptian Tax Authority",
+    "narration": "Solidarity Fund Contribution",
+    "account_code": "819"
+  },
+  {
+    "id": "martyrs_fund",
+    "description": "Martyrs' Families Fund",
+    "match_contains": "MARTYR",
+    "contact": "Egyptian Tax Authority",
+    "narration": "Martyrs' Families Fund",
+    "account_code": "919"
+  },
+  {
+    "id": "emergency_fund",
+    "description": "Emergency fund payment",
+    "match_contains": "EMERGENCY",
+    "contact": "Egyptian Tax Authority",
+    "narration": "Emergency Fund Payment",
+    "account_code": "805"
+  },
+  {
+    "id": "bank_fees_cps",
+    "description": "Bank charges and fees on CPS account",
+    "match_contains": "Bank Charge",
+    "contact": "CIB Bank",
+    "narration": "Bank Fees - CIB CPS",
+    "account_code": "404"
+  }
+]

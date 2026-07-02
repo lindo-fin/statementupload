@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+processed_*.json
+xero_ids_*.json
+xero_transaction_ids.json

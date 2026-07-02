@@ -1,0 +1,30 @@
+[
+  {
+    "id": "egp",
+    "name": "CIB EGP",
+    "xero_bank_account_id": "a4cac9aa-cf84-4105-89c9-261ac4b0ea4e",
+    "default_account_code": "850",
+    "rules_file": "rules_egp.json",
+    "processed_log": "processed_egp.json",
+    "xero_ids_log": "xero_ids_egp.json"
+  },
+  {
+    "id": "usd",
+    "name": "CIB USD",
+    "xero_bank_account_id": "44d59078-3aa8-44eb-8008-46c94aaad882",
+    "default_account_code": "902",
+    "rules_file": "rules_usd.json",
+    "processed_log": "processed_usd.json",
+    "xero_ids_log": "xero_ids_usd.json"
+  },
+  {
+    "id": "cps",
+    "name": "CIB CPS",
+    "xero_bank_account_id": "5190de09-55a2-465d-8c2c-429df24ec25a",
+    "default_account_code": "850",
+    "note": "Statutory payments account — payroll, VAT, social insurance, WHT, funds",
+    "rules_file": "rules_cps.json",
+    "processed_log": "processed_cps.json",
+    "xero_ids_log": "xero_ids_cps.json"
+  }
+]
