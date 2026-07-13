@@ -2,6 +2,7 @@ import os
 import io
 import json
 import hashlib
+import urllib.parse
 import requests
 import pandas as pd
 import streamlit as st
@@ -27,6 +28,13 @@ XERO_CLIENT_ID        = os.getenv("XERO_CLIENT_ID")
 XERO_CLIENT_SECRET    = os.getenv("XERO_CLIENT_SECRET")
 XERO_TENANT_ID        = os.getenv("XERO_TENANT_ID")
 XERO_WHT_ACCOUNT_CODE = os.getenv("XERO_WHT_ACCOUNT_CODE", "627")
+XERO_REDIRECT_URI     = os.getenv("XERO_REDIRECT_URI", "http://localhost:8501")
+XERO_SCOPES = " ".join([
+    "openid", "profile", "email", "offline_access",
+    "accounting.transactions", "accounting.settings",
+    "accounting.invoices", "accounting.payments",
+    "accounting.creditnotes", "accounting.contacts",
+])
 ENV_FILE       = _data_env
 ACCOUNTS_FILE  = os.path.join(BASE_DIR, "accounts.json")
 COA_FILE       = os.path.join(BASE_DIR, "chart_of_accounts.csv")
@@ -135,30 +143,38 @@ st.markdown("""
   }
 
   /* Tabs */
-  [data-testid="stTabs"] [role="tablist"] {
-    gap: 0 !important;
-    border-bottom: 1.5px solid var(--khaki-10);
+  [data-testid="stTabs"] > div:first-child {
+    border-bottom: 1.5px solid #e8e8e8;
     margin-bottom: 24px;
+  }
+  [data-testid="stTabs"] [role="tablist"] {
+    gap: 4px !important;
+    flex-wrap: nowrap;
   }
   [data-testid="stTabs"] button[role="tab"] {
     font-family: 'DM Sans', sans-serif !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-weight: 400 !important;
-    color: var(--taupe) !important;
-    padding: 8px 16px !important;
+    color: #888 !important;
+    padding: 10px 18px !important;
     border-radius: 0 !important;
     background: transparent !important;
     border: none !important;
-    opacity: 0.6;
-    transition: opacity 0.05s ease;
+    border-bottom: 2px solid transparent !important;
+    white-space: nowrap !important;
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
   [data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
-    opacity: 1 !important;
     color: var(--midnight) !important;
     border-bottom: 2px solid var(--midnight) !important;
     font-weight: 500 !important;
   }
-  [data-testid="stTabs"] button[role="tab"]:hover { opacity: 0.8; }
+  [data-testid="stTabs"] button[role="tab"]:hover {
+    color: var(--midnight) !important;
+    opacity: 1 !important;
+  }
+  /* Hide Streamlit's default tab ink bar (we draw our own) */
+  [data-testid="stTabs"] [role="tablist"] + div { display: none; }
 
   /* Expander */
   [data-testid="stExpander"] {
@@ -598,6 +614,31 @@ def parse_batch_detail(file, batch_date: date, batch_reference: str,
 
 
 # ── Xero ──────────────────────────────────────────────────────────────────────
+
+def xero_auth_url() -> str:
+    params = {
+        "response_type": "code",
+        "client_id":     XERO_CLIENT_ID,
+        "redirect_uri":  XERO_REDIRECT_URI,
+        "scope":         XERO_SCOPES,
+        "state":         "cib_xero_reauth",
+    }
+    return "https://login.xero.com/identity/connect/authorize?" + urllib.parse.urlencode(params)
+
+
+def exchange_code_for_tokens(code: str) -> dict:
+    r = requests.post(
+        "https://identity.xero.com/connect/token",
+        auth=(XERO_CLIENT_ID, XERO_CLIENT_SECRET),
+        data={
+            "grant_type":   "authorization_code",
+            "code":         code,
+            "redirect_uri": XERO_REDIRECT_URI,
+        },
+    )
+    r.raise_for_status()
+    return r.json()
+
 
 def get_xero_token() -> str:
     refresh_token = os.getenv("XERO_REFRESH_TOKEN")
@@ -1103,6 +1144,33 @@ def display_df(df: pd.DataFrame, show_rules: bool = False):
     """
     components.html(html, height=min(600, 120 + len(d) * 36), scrolling=True)
 
+
+# ── Xero OAuth callback ───────────────────────────────────────────────────────
+# Xero redirects back here with ?code=... after the user approves access.
+
+_qp = st.query_params
+if "code" in _qp:
+    try:
+        _td = exchange_code_for_tokens(_qp["code"])
+        _update_env("XERO_REFRESH_TOKEN", _td["refresh_token"])
+        os.environ["XERO_REFRESH_TOKEN"] = _td["refresh_token"]
+        st.query_params.clear()
+        st.success("✓ Xero re-authorized — all scopes (invoices, payments) are now active.")
+        st.rerun()
+    except Exception as _e:
+        st.error(f"Xero authorization failed: {_e}")
+
+# ── Xero re-authorize sidebar ─────────────────────────────────────────────────
+with st.sidebar:
+    st.markdown("### Xero Connection")
+    _auth_url = xero_auth_url()
+    st.markdown(
+        f'<a href="{_auth_url}" target="_self" style="display:inline-block;padding:8px 14px;'
+        f'background:#0a0a0a;color:#fff;border-radius:6px;text-decoration:none;font-size:13px;">'
+        f'🔗 Re-authorize Xero</a>',
+        unsafe_allow_html=True,
+    )
+    st.caption("Use this if Match Invoices returns 401. Grants invoice & payment scopes.")
 
 # ── Header ────────────────────────────────────────────────────────────────────
 
