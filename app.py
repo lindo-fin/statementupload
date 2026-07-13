@@ -173,8 +173,6 @@ st.markdown("""
     color: var(--midnight) !important;
     opacity: 1 !important;
   }
-  /* Hide Streamlit's default tab ink bar (we draw our own) */
-  [data-testid="stTabs"] [role="tablist"] + div { display: none; }
 
   /* Expander */
   [data-testid="stExpander"] {
